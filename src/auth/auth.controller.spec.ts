@@ -120,7 +120,7 @@ describe('AuthController', () => {
         authController.googleCallback(user, res as unknown as Response);
 
         assert.strictEqual(res.cookies['jwt'], authService.token);
-        assert.strictEqual(res.redirectedTo, 'http://localhost:3000/users/me');
+        assert.strictEqual(res.redirectedTo, `${process.env.URL}/users/me`);
     });
 
     it('should clear cookie on logout', () => {

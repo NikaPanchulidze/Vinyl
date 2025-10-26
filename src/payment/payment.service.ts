@@ -56,8 +56,8 @@ export class PaymentService {
             mode: 'payment',
             line_items,
             metadata: { orderId: order.id },
-            success_url: 'http://localhost:3000/orders',
-            cancel_url: 'http://localhost:3000/orders',
+            success_url: `${process.env.URL}/orders`,
+            cancel_url: `${process.env.URL}/orders`,
         });
 
         await this.ordersService.updateSessionId(

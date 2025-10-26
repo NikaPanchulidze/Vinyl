@@ -62,7 +62,7 @@ export class AuthController {
 
         res.cookie('jwt', token);
 
-        res.redirect('http://localhost:3000/users/me');
+        res.redirect(`${process.env.URL}/users/me`);
     }
 
     @Get('/logout')
