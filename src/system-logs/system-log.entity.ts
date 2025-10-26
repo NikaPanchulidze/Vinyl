@@ -22,7 +22,7 @@ export class SystemLog {
     @Column({ type: 'text', nullable: true })
     description: string;
 
-    @Column({ type: 'int' })
+    @Column({ type: 'int', nullable: true })
     duration: number;
 
     @CreateDateColumn()

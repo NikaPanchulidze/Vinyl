@@ -18,6 +18,6 @@ export const AppDataSource = new DataSource({
     database: process.env.DB_NAME || 'my_database',
     entities: [User, Vinyl, Order, OrderItem, Review, SystemLog],
     migrations: ['dist/src/migrations/*.js'],
-    synchronize: true,
+    synchronize: false,
     logging: false,
 });
