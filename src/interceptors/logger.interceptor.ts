@@ -42,7 +42,7 @@ export class ActivityLoggerInterceptor implements NestInterceptor {
                     entity,
                     action,
                     description: `${user?.email} performed ${action} on ${entity}`,
-                    duration,
+                    duration: duration ? duration : 0,
                 };
                 void this.systemLogsService.create(logEntry);
             })

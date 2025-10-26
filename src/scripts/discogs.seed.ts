@@ -1,9 +1,8 @@
 import axios from 'axios';
 import dotenv from 'dotenv';
 import 'reflect-metadata';
-
+import { AppDataSource } from 'src/ormconfig';
 import { Vinyl } from '../vinyls/vinyl.entity';
-import { ProdDataSource } from 'src/ormconfig.prod';
 
 dotenv.config({ path: `.env.${process.env.NODE_ENV}` });
 
@@ -15,8 +14,8 @@ const BASE_URL = 'https://api.discogs.com';
 
 async function seedDiscogsVinyls() {
     try {
-        await ProdDataSource.initialize();
-        const repo = ProdDataSource.getRepository(Vinyl);
+        await AppDataSource.initialize();
+        const repo = AppDataSource.getRepository(Vinyl);
 
         const searchResponse = await axios.get(`${BASE_URL}/database/search`, {
             params: {
@@ -87,7 +86,7 @@ async function seedDiscogsVinyls() {
     } catch (err) {
         console.error('Seeding failed:', err);
     } finally {
-        await ProdDataSource.destroy();
+        await AppDataSource.destroy();
         console.log('Connection closed.');
     }
 }
