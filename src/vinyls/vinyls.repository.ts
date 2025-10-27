@@ -38,7 +38,7 @@ export class VinylsRepository {
                 'vinyl.discogsScore as "discogsScore"',
                 'vinyl.createdAt as "createdAt"',
             ])
-            .addSelect('ROUND(AVG(review.rating), 2)', 'avgScore')
+            .addSelect('ROUND(AVG(review.rating::numeric), 2)', 'avgScore')
             .addSelect((subQuery) => {
                 const sq = subQuery
                     .select('r.comment')
