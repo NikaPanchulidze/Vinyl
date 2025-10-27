@@ -24,7 +24,7 @@ export class EmailService {
             : this.configService.get<string>('EMAIL_HOST');
 
         const port = isTest
-            ? Number(process.env.TEST_EMAIL_PORT) || 587
+            ? Number(process.env.TEST_EMAIL_PORT) || 465
             : Number(this.configService.get<string>('EMAIL_PORT'));
 
         const user = isTest
