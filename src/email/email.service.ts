@@ -12,37 +12,14 @@ export class EmailService {
         private readonly systemLogsService: SystemLogsService,
         private readonly configService: ConfigService
     ) {
-        const isTest =
-            process.env.NODE_ENV === 'test' || process.env.NODE_ENV === 'e2e';
-
-        const service = isTest
-            ? process.env.TEST_EMAIL_SERVICE || 'test'
-            : this.configService.get<string>('EMAIL_SERVICE');
-
-        const host = isTest
-            ? process.env.TEST_EMAIL_HOST || 'localhost'
-            : this.configService.get<string>('EMAIL_HOST');
-
-        const port = isTest
-            ? Number(process.env.TEST_EMAIL_PORT) || 465
-            : Number(this.configService.get<string>('EMAIL_PORT'));
-
-        const user = isTest
-            ? process.env.TEST_EMAIL_USER || 'test-user'
-            : this.configService.get<string>('EMAIL_USER');
-
-        const pass = isTest
-            ? process.env.TEST_EMAIL_PASS || 'test-pass'
-            : this.configService.get<string>('EMAIL_PASS');
-
         this.transporter = nodemailer.createTransport({
-            service,
-            host,
-            port,
+            service: process.env.EMAIL_SERVICE,
+            host: process.env.EMAIL_HOST,
+            port: Number(process.env.EMAIL_PORT),
             secure: true,
             auth: {
-                user,
-                pass,
+                user: process.env.EMAIL_USER,
+                pass: process.env.EMAIL_PASS,
             },
         });
     }
