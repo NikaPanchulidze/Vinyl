@@ -12,7 +12,7 @@ dotenv.config();
 
 export const ProdDataSource = new DataSource({
     type: 'postgres',
-    url: process.env.DATABASE_URL + '?sslmode=require',
+    url: process.env.DATABASE_URL,
     entities: [User, Vinyl, Order, OrderItem, Review, SystemLog],
     migrations: [join(__dirname, '/../migrations/*.{ts,js}')],
     synchronize: false,
