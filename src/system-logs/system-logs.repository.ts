@@ -70,6 +70,7 @@ export class SystemLogsRepository {
             description: message,
             action: 'INFO',
             entity: 'System',
+            duration: 0,
         });
         return this.repo.save(log);
     }
