@@ -23,6 +23,9 @@ export class EmailService {
             tls: {
                 rejectUnauthorized: false, // Accept self-signed certificates
             },
+            connectionTimeout: 10000,
+            greetingTimeout: 10000,
+            socketTimeout: 10000,
         });
     }
 
