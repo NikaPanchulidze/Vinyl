@@ -32,7 +32,7 @@ export class EmailService {
     }: EmailOptions): Promise<void> {
         try {
             await this.transporter.sendMail({
-                from: this.configService.get<string>('EMAIL_USER'),
+                from: process.env.EMAIL_USER,
                 to,
                 subject,
                 text,
