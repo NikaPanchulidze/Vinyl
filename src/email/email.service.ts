@@ -13,7 +13,6 @@ export class EmailService {
         private readonly configService: ConfigService
     ) {
         this.transporter = nodemailer.createTransport({
-            service: process.env.EMAIL_SERVICE,
             host: process.env.EMAIL_HOST,
             port: Number(process.env.EMAIL_PORT),
             secure: false,
