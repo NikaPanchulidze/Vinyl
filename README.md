@@ -59,7 +59,7 @@ This is a backend application which allow's you to register, search and buy viny
 
 1. **Clone the Repository:**
     ```bash
-    git clone https://nodejs-course-2025-gitlab.codelx.dev/nodejs-courses-2025-georgia/nika-panchulidze.git
+    git clone https://github.com/NikaPanchulidze/Vinyl
     ```
 2. **Navigate to the Project Directory:**
     ```
