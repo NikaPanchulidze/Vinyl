@@ -63,7 +63,7 @@ This is a backend application which allow's you to register, search and buy viny
     ```
 2. **Navigate to the Project Directory:**
     ```
-    cd nika-panchulidze
+    cd Vinyl
     ```
 3. **Install necessary dependencies:**
     ```
